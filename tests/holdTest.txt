@@ -1,0 +1,19 @@
+<test,name="Hold Test">
+
+	//Sending water value less than hold (9C)
+	<send>
+	SND 090 0000000900000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXX01XX //Hold light
+	</check>
+	
+	//sending the test for the lamdba control. the LCTL is the lamdba control from dash2.
+	<send>
+	SND 0A0 0000000000000100
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXX01XX //Hold light
+	</check>
+	
+</test>

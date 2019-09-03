@@ -1,0 +1,58 @@
+//Next test the water temperature
+<test,testname="Water temp test">
+	//under water temp (15C)
+	<send>
+	SND 090 0000000F23000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXX00XXXXXX
+	</check>
+	
+	//over water warning test (35C)
+	<send>
+	SND 090 0000002323000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXX01XXXXXX		
+	</check>
+	
+	//over water error (50C)
+	<send>
+	SND 090 0000003223000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX01XXXXXXXX		
+	</check>
+	
+	//inbetween error histeresis (38C)
+	<send>
+	SND 090 0000002623000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX01XXXXXXXX //For now warning
+	</check>
+	
+	//over water warning test (34C)
+	<send>
+	SND 090 0000002223000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXX01XXXXXX		
+	</check>
+	
+	//inbetween warning histeresis (28C)
+	<send>
+	SND 090 0000001C23000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXX01XXXXXX //For now warning
+	</check>
+	
+	//below histeresis (24C)
+	<send>
+	SND 090 0000001823000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX0000XXXXXX 
+	</check>
+</test>

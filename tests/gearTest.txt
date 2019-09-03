@@ -1,0 +1,50 @@
+<test,name="Gear">
+
+	//Neutral
+	<send>
+	SND 090 0000000000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXXXX00 //Neutral
+	</check>
+	
+	//1st
+	<send>
+	SND 090 0000000000010000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXXXX01 //1st
+	</check>
+	
+	//2nd
+	<send>
+	SND 090 0000000000020000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXXXX02 //2nd
+	</check>
+	
+	//3rd
+	<send>
+	SND 090 0000000000030000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXXXX03 //3rd
+	</check>
+	
+	//4th
+	<send>
+	SND 090 0000000000040000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXXXX04 //4th
+	</check>
+	
+	//Neutral
+	<send>
+	SND 090 0000000000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXXXXXXXX00 //Neutral
+	</check>
+</test>

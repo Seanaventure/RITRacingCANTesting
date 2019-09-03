@@ -1,0 +1,42 @@
+//Done setting up the EEPROM, now we need to test the actual 
+<test,testname="Shift lights test">
+	delay=1
+	//7,000 rpm test
+	<send>
+	SND 090 1B58000000000000
+	</send>
+	<check,timeout=1>
+	0AB 0000XXXXXXXXXXXX
+	</check>
+	
+	//8,000 rpm test
+	<send>
+	SND 090 1F40000000000000
+	</send>
+	<check,timeout=1>
+	0AB 0000XXXXXXXXXXXX
+	</check>
+	
+	//9,000 rpm test, should return 20 lights (0x2A)
+	<send>
+	SND 090 2328000000000000
+	</send>
+	<check,timeout=1>
+	0AB 1400XXXXXXXXXXXX
+	</check>
+	
+	//10,500 rpm test, should return 50 lights (0x32)
+	<send>
+	SND 090 2904000000000000
+	</send>
+	<check,timeout=1>
+	0AB 2A00XXXXXXXXXXXX
+	</check>
+	
+	<send>
+	SND 090 1B58000000000000
+	</send>
+	<check,timeout=1>
+	0AB 0000XXXXXXXXXXXX
+	</check>
+</test>

@@ -1,0 +1,60 @@
+//Next test the water temperature
+<test,testname="Oil pressure test">
+	<send>
+	SND 027 0030011E00000000 //Oil pressure warning threshold (30BAR)
+	delay=1
+	SND 027 0031010F00000000 //Oil pressure error threshold (15BAR)
+	delay=1
+	SND 027 0032010500000000 //oil pressure histeresis (5BAR)
+	delay=1
+	</send>
+	
+	//over oil temp (40BAR)
+	<send>
+	SND 090 0000280000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX0000XXXXXX
+	</check>
+	
+	
+	//under oil error (9BAR)
+	<send>
+	SND 090 0000090000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX01XXXXXXXX //error light
+	</check>
+	
+	//inbetween error histeresis (17BAR)
+	<send>
+	SND 090 0000110000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX01XXXXXXXX //For now warning
+	</check>
+	
+	//under oil warning test (24BAR)
+	<send>
+	SND 090 0000180000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXX01XXXXXX
+	</check>
+	
+	//inbetween warning histeresis (32BAR)
+	<send>
+	SND 090 0000200000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXXXX01XXXXXX //For now warning
+	</check>
+	
+	//above histeresis (40BAR)
+	<send>
+	SND 090 0000280000000000
+	</send>
+	<check,timeout=1>
+	0AB XXXXXX0000XXXXXX 
+	</check>
+</test>

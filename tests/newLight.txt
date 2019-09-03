@@ -1,0 +1,26 @@
+<test,testname="lightTest">
+	<send>
+	SND 0FF 0000000000000000
+	</send>
+	<check,timeout=2>
+	0AB 0000000000000000
+	</check>
+	
+	<send>
+	SND 0FF 0000000000000010
+	</send>
+	<check,timeout=2>
+	0AB 0000000000000018
+	</check>
+	
+	<send>
+	SND 0FF 0000000000002815
+	delay=1
+	SND 0FF 0000000000002819
+	</send>
+	<check,timeout=2>
+	0AB 0000000000000021
+	0AB 0000000000000027
+	</check>
+</test>
+

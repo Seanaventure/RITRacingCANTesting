@@ -1,0 +1,11 @@
+<test,testname="DaqProgramming">
+	<check,timeout=0.5>
+		010 XXXXXXXX00000000
+	</check>
+	<check,timeout=0.5>
+		010 XXXXXXXX00000000
+	</check>
+	<check,timeout=0.5>
+		010 XXXXXXXX00000000
+	</check>
+</test>

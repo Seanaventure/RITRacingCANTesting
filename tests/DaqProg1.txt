@@ -1,0 +1,6 @@
+<test,testname="DaqProgramming">
+	<send>
+		SND 127 001001FF00000000 //Configure the daq to only send bt and sp
+		SND 127 002002000A000000 //Send every 10ms (.01s)
+	</send>
+</test>

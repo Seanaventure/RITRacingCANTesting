@@ -1,0 +1,19 @@
+<test,testname="eeprom set up">
+	<send>
+	//The code to set up the eeprom
+	SND 027 0010021388000000 //Shift lights
+	delay=1
+	SND 027 0020011E00000000 //water temp threshold (30C)
+	delay=1
+	SND 027 0021012800000000 //water temp error threshold (40C)
+	delay=1
+	SND 027 0022010500000000 //water temp histeresis (5C)
+	delay=1
+	SND 027 0030011E00000000 //Oil pressure warning threshold (30BAR)
+	delay=1
+	SND 027 0031010F00000000 //Oil pressure error threshold (15BAR)
+	delay=1
+	SND 027 0032010500000000 //oil pressure histeresis (5BAR)
+	</send>
+</test>
+
